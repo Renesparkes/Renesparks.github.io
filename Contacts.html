@@ -1,1 +1,491 @@
-
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>צור קשר - קול פנימי</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.7;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .site-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .site-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: #34495e;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .contact-content {
+            background-color: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            line-height: 1.8;
+        }
+        
+        .contact-title {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+            padding-bottom: 1rem;
+            position: relative;
+        }
+        
+        .contact-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to left, #3498db, #2c3e50);
+            border-radius: 2px;
+        }
+        
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        .collaboration-section {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d4edfa 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2.5rem 0;
+            border-right: 4px solid #3498db;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .collaboration-title {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 1.4rem;
+        }
+        
+        .collaboration-text {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #444;
+        }
+        
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .skill-icon {
+            font-size: 2rem;
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: #3498db;
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .instagram-icon {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .email-icon {
+            background: linear-gradient(45deg, #EA4335, #FBBC05);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .contact-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .contact-card p {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-button {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: #2c3e50;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: all 0.3s;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-home:hover {
+            background-color: #1a252f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .response-time {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, #e8f5e8 0%, #d0efd0 100%);
+            border-radius: 8px;
+            color: #27ae60;
+            font-weight: 500;
+            border-right: 3px solid #2ecc71;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            margin: 0 1rem;
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            list-style-type: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-link a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-link a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                padding: 0 1rem;
+            }
+            
+            .contact-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-section {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- כותרת האתר -->
+    <header>
+        <h1 class="site-title">קול פנימי</h1>
+        <p class="site-subtitle">בלוג על נפש, חברה ומה שביניהם</p>
+    </header>
+    
+    <!-- תפריט ניווט -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">בית</a>
+            <a href="about.html" class="nav-link">אודות</a>
+            <a href="contact.html" class="nav-link">צור קשר</a>
+        </div>
+    </nav>
+    
+    <!-- תוכן דף צור קשר -->
+    <div class="contact-container">
+        <div class="contact-content">
+            <h1 class="contact-title">צור קשר</h1>
+            
+            <p class="contact-intro">
+                אני תמיד שמחה לשמוע מכם! בין אם יש לכם שאלה, רעיון לשיתוף פעולה, 
+                או סתם רוצים להגיד שלום - אשמח מאוד לקבל מכם הודעה.
+            </p>
+            
+            <!-- קטע שיתופי פעולה -->
+            <div class="collaboration-section">
+                <h2 class="collaboration-title">רוצה להצטרף למסע?</h2>
+                <p class="collaboration-text">
+                    המסע לשינוי תודעה וקידום בריאות הנפש הוא משותף. אם גם לך יש תשוקה לתרום - 
+                    אשמח לשמוע ממך!
+                </p>
+                
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                        <h4>כתיבה יצירתית</h4>
+                        <p>בעל.ת ניסיון בכתיבה?</p>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>תשוקה לשינוי</h4>
+                        <p>מלא.ה מוטיבציה לעזור?</p>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>פיתוח ותכנות</h4>
+                        <p>יודע.ת לפתח ולעצב?</p>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>רעיונות יצירתיים</h4>
+                        <p>יש לך רעיונות חדשים?</p>
+                    </div>
+                </div>
+                
+                <p style="text-align: center; margin-top: 1.5rem; font-weight: 500; color: #2c3e50;">
+                    אשמח לשמוע ממך ולשתף איתך פעולה!
+                </p>
+            </div>
+            
+            <!-- דרכי התקשרות -->
+            <div class="contact-methods">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-instagram instagram-icon"></i>
+                    </div>
+                    <h3>אינסטגרם</h3>
+                    <p>עקבו אחרי לעדכונים שוטפים, תובנות יומיות ושיחות פתוחות עם הקהילה</p>
+                    <a href="https://www.instagram.com/_reneyney._/" class="contact-button" target="_blank">
+                        <i class="fab fa-instagram"></i> עקבו אחרי
+                    </a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope email-icon"></i>
+                    </div>
+                    <h3>דוא"ל</h3>
+                    <p>לשיחות מעמיקות יותר, שאלות אישיות והצעות לשיתופי פעולה משמעותיים</p>
+                    <a href="mailto:rene.sp.work@gmail.com" class="contact-button">
+                        <i class="fas fa-envelope"></i> שלחו מייל
+                    </a>
+                </div>
+            </div>
+            
+            <div class="response-time">
+                <i class="fas fa-clock"></i> אני עונה להודעות בתוך 24-48 שעות
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="index.html" class="back-home">
+                    <i class="fas fa-arrow-right"></i>
+                    חזרה לדף הבית
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- תחתית האתר -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">קול פנימי</h3>
+                <p>בלוג ועיון על פמיניזם, בריאות הנפש, פסיכולוגיה ורוחניות.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #bdc3c7;">
+                    <i class="fas fa-heart" style="color: #e74c3c;"></i> פרויקט התנדבותי
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">קישורים מהירים</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="index.html"><i class="fas fa-home"></i> בית</a></li>
+                    <li class="footer-link"><a href="about.html"><i class="fas fa-user"></i> אודות</a></li>
+                    <li class="footer-link"><a href="contact.html"><i class="fas fa-envelope"></i> צור קשר</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">עקבו אחרי</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="https://www.instagram.com/_reneyney._/" target="_blank"><i class="fab fa-instagram"></i> אינסטגרם</a></li>
+                    <li class="footer-link"><a href="mailto:rene.sp.work@gmail.com"><i class="fas fa-envelope"></i> דוא"ל</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            © 2025 נכתב באהבה על ידי Rene Sparks | פרויקט התנדבותי
+        </div>
+    </footer>
+</body>
+</html>
