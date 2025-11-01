@@ -121,6 +121,12 @@
             object-fit: cover;
             border: 4px solid white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7f8c8d;
+            font-weight: bold;
         }
         
         .author-info {
@@ -137,6 +143,17 @@
             font-size: 1rem;
             color: #7f8c8d;
             font-weight: 500;
+        }
+        
+        .volunteer-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         
         .section-title {
@@ -173,6 +190,23 @@
             position: relative;
             border-right: 4px solid #3498db;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .volunteer-section {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d0efd0 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-right: 4px solid #2ecc71;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .volunteer-section h3 {
+            color: #27ae60;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         
         .quote {
@@ -334,10 +368,15 @@
             
             <!-- קטע המחבר עם התמונה -->
             <div class="author-section">
-                <img src="rene.jpg" alt="Rene Sparks" class="author-image">
+                <div class="author-image">
+                    תמונה
+                </div>
                 <div class="author-info">
                     <h2 class="author-name">רנה ספרקס</h2>
-                    <p class="author-title">כותבת, פעילה חברתית ומנחת סדנאות לבריאות הנפש</p>
+                    <p class="author-title">כותבת ופעילה חברתית</p>
+                    <div class="volunteer-badge">
+                        <i class="fas fa-heart"></i> הכל נעשה בהתנדבות מלאה
+                    </div>
                 </div>
             </div>
             
@@ -352,6 +391,12 @@
             <p class="about-text">
                 עם השנים למדתי לרפא את המקומות הכואבים ההם, מצאתי את הקול שלי, והיום – אחרי עשור של טיפולים פסיכולוגיים ומקצועיים – החלטתי להשתמש בו כדי לדבר על נושאים שחשובים לי באמת: שוויון, בריאות נפש, פסיכולוגיה, ורוחניות בגישה עדינה ומעשית.
             </p>
+            
+            <!-- קטע ההתנדבות -->
+            <div class="volunteer-section">
+                <h3><i class="fas fa-hands-helping"></i> פרויקט התנדבותי</h3>
+                <p>כל התוכן באתר זה נכתב ומופק בהתנדבות מלאה, מתוך אמונה עמוקה בחשיבות הנגשת ידע וכלים לבריאות הנפש. אין כאן מטרות רווח - רק רצון אמיתי לעזור ולשתף.</p>
+            </div>
             
             <h2 class="section-title">המקום הזה</h2>
             
@@ -392,6 +437,9 @@
             <div class="footer-section">
                 <h3 class="footer-title">קול פנימי</h3>
                 <p>בלוג ועיון על פמיניזם, בריאות הנפש, פסיכולוגיה ורוחניות.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #bdc3c7;">
+                    <i class="fas fa-heart" style="color: #e74c3c;"></i> פרויקט התנדבותי
+                </p>
             </div>
             
             <div class="footer-section">
@@ -413,8 +461,70 @@
         </div>
         
         <div class="copyright">
-            © 2025 נכתב באהבה על ידי Rene Sparks
+            © 2025 נכתב באהבה על ידי Rene Sparks | פרויקט התנדבותי
         </div>
     </footer>
+
+    <script>
+        // ניסיון לטעון את התמונה - אם היא לא נטענת, נציג מקום מחזיק
+        document.addEventListener('DOMContentLoaded', function() {
+            const authorImage = document.querySelector('.author-image');
+            const img = new Image();
+            
+            // ננסה את כל האפשרויות לשמות קבצים
+            const possibleFilenames = [
+                'rene.gpj',
+                'rene.jpg', 
+                'rene.jpeg',
+                'rene.png',
+                'Rene.gpj',
+                'Rene.jpg',
+                'Rene.jpeg',
+                'Rene.png',
+                'images/rene.gpj',
+                'images/rene.jpg',
+                'images/Rene.gpj',
+                'images/Rene.jpg'
+            ];
+            
+            let imageLoaded = false;
+            let currentIndex = 0;
+            
+            function tryNextImage() {
+                if (currentIndex >= possibleFilenames.length) {
+                    // אם ניסינו את כל השמות ולא מצאנו תמונה
+                    if (!imageLoaded) {
+                        authorImage.innerHTML = 'תמונה';
+                        authorImage.style.display = 'flex';
+                        authorImage.style.alignItems = 'center';
+                        authorImage.style.justifyContent = 'center';
+                        authorImage.style.color = '#7f8c8d';
+                        authorImage.style.fontWeight = 'bold';
+                    }
+                    return;
+                }
+                
+                const filename = possibleFilenames[currentIndex];
+                img.src = filename;
+                
+                img.onload = function() {
+                    imageLoaded = true;
+                    authorImage.innerHTML = '';
+                    authorImage.style.backgroundImage = `url('${filename}')`;
+                    authorImage.style.backgroundSize = 'cover';
+                    authorImage.style.backgroundPosition = 'center';
+                };
+                
+                img.onerror = function() {
+                    currentIndex++;
+                    setTimeout(tryNextImage, 100);
+                };
+                
+                currentIndex++;
+            }
+            
+            tryNextImage();
+        });
+    </script>
 </body>
 </html>
