@@ -108,6 +108,25 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
             background-size: cover;
             background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .article-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+            z-index: 1;
+        }
+        
+        .article-image .image-text {
+            position: relative;
+            z-index: 2;
+            font-size: 1.2rem;
         }
         
         .article-content {
@@ -320,8 +339,8 @@
         <main>
             <!-- מאמר 1 - תוקן -->
             <article class="article-card">
-                <div class="article-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('SAD MAN.jpg');">
-                    <!-- הטקסט "בקרוב" הוסר כאן כי זה מאמר זמין -->
+                <div class="article-image" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'); background-position: center 30%;">
+                    <!-- התמונה מכוונת לפנים של האדם -->
                 </div>
                 <div class="article-content">
                     <h2 class="article-title">המשבר השקט: בריאות הנפש הגברית</h2>
@@ -338,8 +357,8 @@
             
             <!-- מאמר 2 - בקרוב -->
             <article class="article-card">
-                <div class="article-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('FEM.jpg');">
-                    בקרוב: פמיניזם רעיל
+                <div class="article-image" style="background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'); background-position: center 40%;">
+                    <div class="image-text">בקרוב: פמיניזם רעיל</div>
                 </div>
                 <div class="article-content">
                     <h2 class="article-title">מתי שוויון הופך לנקמה? פמיניזם רעיל ששובר את הכלים</h2>
@@ -420,5 +439,3 @@
     </footer>
 </body>
 </html>
-
-
