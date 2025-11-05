@@ -317,6 +317,8 @@
         .coffee-icon i {
             animation: coffeeSteam 3s ease-in-out infinite;
         }
+
+
         
         /* עיצוב תחתית האתר */
         footer {
@@ -384,7 +386,174 @@
             margin-top: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
-        
+        /* עיצוב באנר אזהרה ותמיכה */
+.warning-banner {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+    border: 2px solid #e17055;
+    border-radius: 12px;
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.warning-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #e74c3c, #f39c12, #e74c3c);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+.warning-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.warning-icon {
+    font-size: 3rem;
+    color: #e74c3c;
+    flex-shrink: 0;
+}
+
+.warning-text {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.warning-text h3 {
+    color: #2d3436;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.warning-text p {
+    color: #636e72;
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.warning-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex-shrink: 0;
+}
+
+.support-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    justify-content: center;
+}
+
+.emergency-btn {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    border: 2px solid #c0392b;
+}
+
+.emergency-btn:hover {
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.support-btn:not(.emergency-btn) {
+    background: white;
+    color: #2c3e50;
+    border: 2px solid #bdc3c7;
+}
+
+.support-btn:not(.emergency-btn):hover {
+    background: #f8f9fa;
+    border-color: #3498db;
+    color: #3498db;
+    transform: translateY(-2px);
+}
+
+/* עיצוב רספונסיבי */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .warning-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .warning-icon {
+        font-size: 2.5rem;
+    }
+    
+    .warning-buttons {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .support-btn {
+        flex: 1;
+        min-width: 160px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .footer-section {
+        margin-bottom: 1.5rem;
+    }
+    
+    .nav-container {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .warning-banner {
+        margin: 1rem;
+        padding: 1.2rem;
+    }
+    
+    .warning-text h3 {
+        font-size: 1.2rem;
+    }
+    
+    .warning-text p {
+        font-size: 1rem;
+    }
+    
+    .warning-buttons {
+        flex-direction: column;
+    }
+    
+    .support-btn {
+        width: 100%;
+    }
+}
         /* עיצוב רספונסיבי */
         @media (max-width: 768px) {
             .container {
@@ -596,6 +765,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
