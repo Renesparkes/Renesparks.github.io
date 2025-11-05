@@ -169,6 +169,68 @@
             border-right: 4px solid #f39c12;
             font-size: 0.95rem;
         }
+
+        /* עיצוב כפתור תקנו לי קפה */
+        .coffee-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .coffee-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #FF813F 0%, #FF0099 50%, #FD1D1D 100%);
+            color: white;
+            text-decoration: none;
+            padding: 1.2rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(255, 129, 63, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .coffee-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 129, 63, 0.5);
+            background: linear-gradient(135deg, #FF944F 0%, #FF1A9A 50%, #FD3535 100%);
+        }
+        
+        .coffee-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .coffee-button:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .coffee-icon {
+            font-size: 1.5rem;
+            margin-left: 0.8rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        /* אנימציה עדינה לקפה */
+        @keyframes coffeeSteam {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-2px) scale(1.05); }
+        }
+        
+        .coffee-icon i {
+            animation: coffeeSteam 3s ease-in-out infinite;
+        }
         
         .emergency-numbers {
             background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
@@ -332,6 +394,11 @@
             .footer-section {
                 margin-bottom: 1.5rem;
             }
+            
+            .coffee-button {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -370,10 +437,9 @@
             <p>גדלתי בבית סלאבי, במשפחה שעלתה מברית המועצות, שבה דיכאון נתפס כחוסר עשייה — לא כמצב רפואי, לא כתגובה לטראומה, אלא כחולשה שצריך "להתעשת" ממנה. הדורות לפניי חיו במצב הישרדות תמידי. וכשחיים כך שנים, הכאב כבר לא נתפס כרגש — אלא כעובדה קיימת.</p>
             
             <h2>סימנים ראשונים</h2>
-            <p>ח,הסימנים הראשונים הופיעו מוקדם. בכיתה ב׳ הייתי חוזרת הביתה וחושבת כמה נעים היה להיות מתה — לא מתוך רצון למות, אלא מתוך ייאוש מוחלט. הייתי נעולה בתוך הראש שלי, בלי מילים להסביר.
+            <p>הסימנים הראשונים הופיעו מוקדם. בכיתה ב׳ הייתי חוזרת הביתה וחושבת כמה נעים היה להיות מתה — לא מתוך רצון למות, אלא מתוך ייאוש מוחלט. הייתי נעולה בתוך הראש שלי, בלי מילים להסביר.
                 המצוקה שלי באה בדרכים אחרות: אם זה היה "בעונשים" שהבאתי על עצמי, בבכי בחזרה מבית ספר, חוסר יכולת לשבת ולעשות שיעורי בית - או אפילו פחד בלתי נגמר שאם משהו לא במקום - לא רק יכעסו עליי. אני ארגיש מושפלת באמת.
             </p>
-            
             
             <h2>ילדות בצל שתיקה</h2>
             <p>הוריי עלו לארץ לפני שנולדתי. הם נשאו על גבם עוני, לחץ, שפה חדשה ומלחמת הישרדות יומיומית. כשאתם עסוקים בלשרוד, קשה לראות שהילדה שלכם טובעת.</p>
@@ -428,12 +494,22 @@
                 <li>טיפול קבוע, גם כשהוא לא "מושלם"</li>
                 <li>תרופות, גם כשהן גורמות לעייפות</li>
                 <li>מעגל חברים תומך, שגם כשהוא קטן — הוא אמיתי</li>
-                <li>  -ועבודה עם משמעות, שמחזירה תחושת ערך
+                <li>ועבודה עם משמעות, שמחזירה תחושת ערך
                 והאתר נותן לי גם מענה לא קטן, להרגיש פתוחה וחופשיה לדבר, הכתיבה היא התרפיה בשבילי.</li>
             </ul>
             
             <div class="highlight">
                 <p>כי ההפך מהתמכרות — הוא קשר. לא חוסר שליטה, אלא חוסר חיבור.</p>
+            </div>
+
+            <!-- כפתור תקנו לי קפה -->
+            <div class="coffee-container">
+                <a href="https://buymeacoffee.com/rene.sparks?new=1" class="coffee-button" target="_blank">
+                    <span class="coffee-text">תמכו בכתיבה שלי</span>
+                    <span class="coffee-icon">
+                        <i class="fas fa-mug-hot"></i>
+                    </span>
+                </a>
             </div>
             
             <!-- מספרי חירום -->
@@ -461,7 +537,7 @@
             </div>
 
             <h2>המסר שלי אליך</h2>
-            <p><p>בין אם אתה בן 16, אישה בת 40, או אדם בן 70 — הכאב שלך לא קטן מדי. אין גיל שבו "לא לגיטימי" להרגיש. אין מין שמותר לו להרגיש יותר או פחות (תקראו על <a href="https://renesparkes.github.io/mentalhelthman.html" style="color: #3498db; text-decoration: none; font-weight: 500;">"בריאות נפשית גברית"</a>) ואם אתה מזהה מישהו סביבך שנמצא שם — תן לו מקום, אל תשתיק. ריפוי מתחיל ממרחב שמאפשר לדבר.</p></p>
+            <p>בין אם אתה בן 16, אישה בת 40, או אדם בן 70 — הכאב שלך לא קטן מדי. אין גיל שבו "לא לגיטימי" להרגיש. אין מין שמותר לו להרגיש יותר או פחות (תקראו על <a href="https://renesparkes.github.io/mentalhelthman.html" style="color: #3498db; text-decoration: none; font-weight: 500;">"בריאות נפשית גברית"</a>) ואם אתה מזהה מישהו סביבך שנמצא שם — תן לו מקום, אל תשתיק. ריפוי מתחיל ממרחב שמאפשר לדבר.</p>
             
             <p>אני מאמינה היום שהדיכאון לא היה סוף — אלא ההתחלה שלי. הוא הכריח אותי ללמוד מחדש איך לחיות, איך להרגיש, ואיך לאהוב את עצמי. ואם הסיפור שלי יגרום למישהו אחד להישאר — הוא היה שווה הכול.</p>
 
@@ -493,6 +569,7 @@
                 <ul class="footer-links">
                     <li class="footer-link"><a href="https://www.instagram.com/_reneyney._/" target="_blank"><i class="fab fa-instagram"></i> אינסטגרם</a></li>
                     <li class="footer-link"><a href="mailto:rene.sp.work@gmail.com"><i class="fas fa-envelope"></i> דוא"ל</a></li>
+                    <li class="footer-link"><a href="https://buymeacoffee.com/rene.sparks?new=1" target="_blank"><i class="fas fa-mug-hot"></i> תקנו לי קפה</a></li>
                 </ul>
             </div>
         </div>
@@ -503,8 +580,3 @@
     </footer>
 </body>
 </html>
-
-
-
-
-
