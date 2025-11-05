@@ -152,6 +152,90 @@
             text-align: center;
         }
         
+        /* עיצוב כפתור תקנו לי קפה */
+        .coffee-container {
+            text-align: center;
+            margin: 2.5rem 0;
+        }
+        
+        .coffee-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #FF813F 0%, #FF0099 50%, #FD1D1D 100%);
+            color: white;
+            text-decoration: none;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(255, 129, 63, 0.4);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .coffee-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(255, 129, 63, 0.6);
+            background: linear-gradient(135deg, #FF944F 0%, #FF1A9A 50%, #FD3535 100%);
+        }
+        
+        .coffee-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .coffee-button:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .coffee-icon {
+            font-size: 2.5rem;
+            margin-left: 1.5rem;
+            flex-shrink: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .coffee-text {
+            text-align: right;
+            flex-grow: 1;
+        }
+        
+        .coffee-main {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .coffee-sub {
+            display: block;
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        /* אנימציה עדינה לקפה */
+        @keyframes coffeeSteam {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-3px) scale(1.05); }
+        }
+        
+        .coffee-icon i {
+            animation: coffeeSteam 3s ease-in-out infinite;
+        }
+        
         .emergency-numbers {
             background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
             padding: 2rem;
@@ -334,6 +418,19 @@
                 font-size: 1.1rem;
             }
             
+            .coffee-button {
+                padding: 1.2rem 1.5rem;
+            }
+            
+            .coffee-icon {
+                font-size: 2rem;
+                margin-left: 1rem;
+            }
+            
+            .coffee-main {
+                font-size: 1.3rem;
+            }
+            
             .numbers-grid {
                 grid-template-columns: 1fr;
             }
@@ -388,6 +485,19 @@
 
             <div class="highlight">
                 "הציפייה הזו יוצרת לחץ כפול: לא רק להתמודד עם המשבר עצמו — אלא גם להסתיר אותו. הקושי הופך מסוגיה שניתן לפתור, גם אם בקושי רב- לסוד שצריך להסתיר, וסוד כזה גדול מדי לוחץ מדי – הוא עלול להפוך קטלני."
+            </div>
+
+            <!-- באנר קנו לי קפה -->
+            <div class="coffee-container">
+                <a href="https://buymeacoffee.com/rene.sparks" class="coffee-button" target="_blank">
+                    <div class="coffee-text">
+                        <span class="coffee-main">תמכו בפרויקט</span>
+                        <span class="coffee-sub">קנו לי קפה ועיזרו לי להמשיך</span>
+                    </div>
+                    <div class="coffee-icon">
+                        <i class="fas fa-mug-hot"></i>
+                    </div>
+                </a>
             </div>
 
             <h2>המחיר של ההדחקה</h2>
@@ -498,6 +608,7 @@
                 <ul class="footer-links">
                     <li class="footer-link"><a href="https://www.instagram.com/_reneyney._/" target="_blank"><i class="fab fa-instagram"></i> אינסטגרם</a></li>
                     <li class="footer-link"><a href="mailto:rene.sp.work@gmail.com"><i class="fas fa-envelope"></i> דוא"ל</a></li>
+                    <li class="footer-link"><a href="https://buymeacoffee.com/rene.sparks" target="_blank"><i class="fas fa-mug-hot"></i> תמכו בפרויקט</a></li>
                 </ul>
             </div>
         </div>
@@ -508,4 +619,3 @@
     </footer>
 </body>
 </html>
-
